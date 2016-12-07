@@ -1,16 +1,39 @@
-#from tkinter import *
+# try:
+#    # for Python2
+#    from Tkinter import *   ## notice capitalized T in Tkinter 
+# except ImportError:
+#    # for Python3
+#    from tkinter import *
+
+import sys
+if sys.version_info <= (2, 7):
+    from Tkinter import *
+else:
+    from tkinter import *
 
 from phue import Bridge
 
-try:
-    # for Python2
-    from Tkinter import *   ## notice capitalized T in Tkinter 
-except ImportError:
-    # for Python3
-    from tkinter import *
+# To find the bridge if please visit https://www.meethue.com/api/nupnp
+BRIDGE_IP = '192.168.0.101'
+
+WHITE_SATURATION = 77
+WHITE_HUE = 41435
+WHITE_BRIGHTNESS = 100
+
+RED_SATURATION = 255
+RED_HUE = 65280
+RED_BRIGHTNESS = 191
+
+GREEN_SATURATION = 255
+GREEN_HUE = 25500
+GREEN_BRIGHTNESS = 255
+
+BLUE_SATURATION = 255
+BLUE_HUE = 46920
+BLUE_BRIGHTNESS = 213
 
 
-b = Bridge('192.168.0.100')
+b = Bridge(BRIDGE_IP)
 b.connect()
 
 lights = b.lights
@@ -19,40 +42,33 @@ lights = b.lights
 def switch_white(event):
     for l in lights:
         print("white")
-        l.saturation = 77
-        l.hue = 41435
-        # 100 for white
-        l.brightness = 100
+        l.saturation = WHITE_SATURATION
+        l.hue = WHITE_HUE
+        l.brightness = WHITE_BRIGHTNESS
 
 
 def switch_red(event):
     for l in lights:
         print("red")
-        # l.xy = converter.rgbToCIE1931(red=255, green=0, blue=0)
-        l.saturation = 255
-        l.hue = 65280
-        # 191 for red
-        # 100 for white
-        l.brightness = 191
+        l.saturation = RED_SATURATION
+        l.hue = RED_HUE
+        l.brightness = RED_BRIGHTNESS
 
 
 def switch_green(event):
     print("green")
     for l in lights:
-        # l.xy = converter.rgbToCIE1931(red=0, green=255, blue=0)
-        l.saturation = 255
-        l.hue = 25500
-        l.brightness = 255
+        l.saturation = GREEN_SATURATION
+        l.hue = GREEN_HUE
+        l.brightness = GREEN_BRIGHTNESS
 
 
 def switch_blue(event):
     print("blue")
     for l in lights:
-        # l.xy = converter.rgbToCIE1931(red=0, green=0, blue=255)
-        l.hue = 46920
-        l.saturation = 255
-        # brightness 213
-        l.brightness = 213
+        l.saturation = BLUE_SATURATION
+        l.hue = BLUE_HUE
+        l.brightness = BLUE_BRIGHTNESS
 
 root = Tk()
 
