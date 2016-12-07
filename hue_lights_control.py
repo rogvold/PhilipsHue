@@ -1,14 +1,8 @@
-# try:
-#    # for Python2
-#    from Tkinter import *   ## notice capitalized T in Tkinter 
-# except ImportError:
-#    # for Python3
-#    from tkinter import *
-
-import sys
-if sys.version_info <= (2, 7):
-    from Tkinter import *
-else:
+try:
+    # for Python2
+    from Tkinter import *   ## notice capitalized T in Tkinter 
+except ImportError:
+   # for Python3
     from tkinter import *
 
 from phue import Bridge
