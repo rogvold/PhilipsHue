@@ -1,6 +1,6 @@
 # PhilipsHue
 
-Control Philips Huebulps with this script
+Control Philips Hue bulps with this script
 
 ##Installation
 run 
