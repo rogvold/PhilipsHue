@@ -8,7 +8,7 @@ except ImportError:
 from phue import Bridge
 
 # To find the bridge if please visit https://www.meethue.com/api/nupnp
-BRIDGE_IP = '192.168.0.101'
+BRIDGE_IP = '192.168.0.100'
 
 WHITE_SATURATION = 77
 WHITE_HUE = 41435
